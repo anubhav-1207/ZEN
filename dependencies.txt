@@ -1,0 +1,2 @@
+Webbrowser: To open links 
+AppOpener: Open applications 
