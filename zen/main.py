@@ -13,11 +13,10 @@ def usernameAuthentication():
     except FileNotFoundError:
         username = input("Set Username: ")
 
-        if username == " ":
+        if username == "":
             print("Empty Space")
-            
-
-
+            usernameAuthentication()
+        
         else:
             with open("authentication/data/username.zenlog", 'w') as milk:
                 milk.write(username)
@@ -48,8 +47,13 @@ def passwordAuthentication():
     except FileNotFoundError:
         password = input("Set a new pasword: ")
 
-        with open("authentication/data/password.zenlog",'w') as milk:
-            milk.write(password)
+        if password == "":
+            print("Empty Password!")
+            passwordAuthentication()
+        
+        else:
+            with open("authentication/data/password.zenlog",'w') as milk:
+                milk.write(password)
 
 usernameAuthentication()
 passwordAuthentication()
